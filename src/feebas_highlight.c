@@ -30,8 +30,8 @@ void HighlightFeebasSpots() {
         }
     }
 
-    for(y = 0; y < gMapHeader.mapLayout->height; y++) {
-        for(x = 0; x < gMapHeader.mapLayout->width; x++) {
+    for(y = 0; y < gMapHeader.mapLayout->height + 7; y++) {
+        for(x = 0; x < gMapHeader.mapLayout->width + 7; x++) {
             u8 metatileBehavior = MapGridGetMetatileBehaviorAt(x, y);
             u8 feebasEncounterable = MetatileBehavior_IsFeebasEncounterable(metatileBehavior);
             if (feebasEncounterable == TRUE) {
