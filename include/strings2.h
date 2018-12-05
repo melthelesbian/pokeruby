@@ -42,6 +42,7 @@ extern const u8 SystemText_Pokemon[];
 extern const u8 SystemText_BAG[];
 extern const u8 SystemText_Pokenav[];
 extern const u8 SystemText_Player[];
+extern const u8 SystemText_Speedrun[];
 extern const u8 SystemText_Save[];
 extern const u8 SystemText_Option[];
 extern const u8 SystemText_Exit[];

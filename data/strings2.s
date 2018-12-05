@@ -95,6 +95,8 @@ SystemText_Pokenav::
 	.string "POKéNAV$"
 SystemText_Player::
 	.string "{PLAYER}$"
+SystemText_Speedrun::
+	.string "SPEEDRUN$"
 SystemText_Save::
 	.string "SAVE$"
 SystemText_Option::
