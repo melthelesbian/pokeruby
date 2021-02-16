@@ -1,6 +1,7 @@
 Route119_MapScripts:: @ 8151167
 	map_script 5, Route119_MapScript1_151172
 	map_script 3, Route119_MapScript1_15119B
+	map_script 1, Route119_MapScript_HighlightFeebas
 	.byte 0
 
 Route119_MapScript1_151172:: @ 8151172
@@ -379,4 +380,8 @@ Route119_EventScript_1515FC:: @ 81515FC
 
 Route119_EventScript_151605:: @ 8151605
 	msgbox Route119_Text_171774, 3
+	end
+
+Route119_MapScript_HighlightFeebas:
+	callnative HighlightFeebasSpots
 	end

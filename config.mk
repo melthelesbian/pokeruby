@@ -5,7 +5,7 @@ GAME_VERSION  ?= RUBY
 GAME_REVISION ?= 0
 GAME_LANGUAGE ?= ENGLISH
 DEBUG         ?= 0
-COMPARE  ?= 1
+COMPARE  ?= 0
 
 # For gbafix
 MAKER_CODE  := 01
@@ -57,4 +57,3 @@ endif
 ifeq ($(DEBUG), 1)
   BUILD_NAME := $(BUILD_NAME)_debug
 endif
-
