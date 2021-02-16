@@ -1,4 +1,5 @@
 #include "global.h"
+#include "battle.h"
 #include "battle_tower.h"
 #include "start_menu.h"
 #include "event_data.h"
@@ -39,6 +40,7 @@ enum {
     MENU_ACTION_BAG,
     MENU_ACTION_POKENAV,
     MENU_ACTION_PLAYER,
+    MENU_ACTION_SPEEDRUN,
     MENU_ACTION_SAVE,
     MENU_ACTION_OPTION,
     MENU_ACTION_EXIT,
@@ -79,6 +81,7 @@ static u8 StartMenu_PokemonCallback(void);
 static u8 StartMenu_BagCallback(void);
 static u8 StartMenu_PokenavCallback(void);
 static u8 StartMenu_PlayerCallback(void);
+static u8 StartMenu_SpeedrunCallback(void);
 static u8 StartMenu_SaveCallback(void);
 static u8 StartMenu_OptionCallback(void);
 static u8 StartMenu_ExitCallback(void);
@@ -92,6 +95,7 @@ static const struct MenuAction sStartMenuItems[] =
     { SystemText_BAG, StartMenu_BagCallback },
     { SystemText_Pokenav, StartMenu_PokenavCallback },
     { SystemText_Player, StartMenu_PlayerCallback },
+    { SystemText_Speedrun, StartMenu_SpeedrunCallback },
     { SystemText_Save, StartMenu_SaveCallback },
     { SystemText_Option, StartMenu_OptionCallback },
     { SystemText_Exit, StartMenu_ExitCallback },
@@ -270,6 +274,7 @@ static void BuildStartMenuActions_Normal(void)
     if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKENAV);
     AddStartMenuAction(MENU_ACTION_PLAYER);
+    AddStartMenuAction(MENU_ACTION_SPEEDRUN);
     AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_EXIT);
@@ -282,6 +287,7 @@ static void BuildStartMenuActions_SafariZone(void)
     AddStartMenuAction(MENU_ACTION_POKEMON);
     AddStartMenuAction(MENU_ACTION_BAG);
     AddStartMenuAction(MENU_ACTION_PLAYER);
+    AddStartMenuAction(MENU_ACTION_SPEEDRUN);
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
@@ -507,6 +513,17 @@ static u8 StartMenu_PlayerCallback(void)
         return 1;
     }
     return 0;
+}
+
+static u8 StartMenu_SpeedrunCallback(void)
+{
+    if(!gPaletteFade.active)
+    {
+        CloseMenu();
+        GameClear();
+        return TRUE;
+    }
+    return FALSE;
 }
 
 //When player selects SAVE
